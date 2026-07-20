@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sensor Indutivo LJ12A3 | Sensores IoT</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header class="cabecalho">
+        <div class="container header-container">
+            <div class="logo">IoT Sensors</div>
+            <nav id="nav">
+                <button id="btn-mobile" aria-label="Abrir Menu"><span id="hamburger"></span></button>
+                <ul id="menu">
+                    <li><a href="../index.html">Início</a></li>
+                    <li><a href="../arduino.html">Arduíno</a></li>
+                    <li><a href="../sensores.html" class="active">Sensores</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="container section">
+        <a href="../sensores.html" class="btn btn-outline" style="margin-bottom: 20px;">&larr; Voltar ao Catálogo</a>
+        <div class="sensor-header">
+            <img src="../imagens/indutivo.png" alt="Sensor Indutivo LJ12A3" style="width: 300px; height: 300px; border-radius: 16px; object-fit: cover; ">
+            <div class="sensor-specs">
+                <h1 style="font-size: 3rem; color: var(--azul-escuro);">LJ12A3</h1>
+                <p style="font-size: 1.2rem; color: var(--cinza-texto); margin-bottom: 20px;">Categoria: Proximidade (Indutivo)</p>
+                <div class="spec-list">
+                    <div class="spec-item"><strong>Tipo de Sinal:</strong> Digital (NPN / PNP, Analógico/Digital via tensão)</div>
+                    <div class="spec-item"><strong>Fabricante Comum:</strong> OMRON, genéricos padrão industrial</div>
+                </div>
+            </div>
+        </div>
+        <div class="secao-grid">
+            <div class="secao-info">
+                <h3>Conceito</h3>
+                <p>O LJ12A3 é um sensor de proximidade indutivo robusto. É amplamente utilizado na indústria clássica (automação) e em CNCs e impressoras 3D para detectar a presença de objetos metálicos a curtas distâncias.</p>
+            </div>
+            <div class="secao-info">
+                <h3>Princípio de Funcionamento</h3>
+                <p>Contém uma bobina em sua extremidade osciladora. A bobina gera um campo magnético eletromagnético de alta frequência. Quando um objeto metálico (ferroso ou não ferroso) entra neste campo, ele induz correntes parasitas (correntes de Foucault) no metal. Isso drena energia do campo, atenuando a amplitude de oscilação do circuito. O circuito interno detecta a alteração e muda o estado da saída.</p>
+            </div>
+            <div class="secao-info secao-larga">
+                <h3>Principais Especificações Técnicas</h3>
+                <ul>
+                    <li><strong>Tensão de operação:</strong> 6V a 36V DC (Geralmente requer circuito divisor de tensão ou optoacoplador para ser lido no Arduino 5V)</li>
+                    <li><strong>Distância de detecção:</strong> ~4 mm (Aço). Para metais não ferrosos (como alumínio), a distância cai para a metade.</li>
+                    <li><strong>Tipo de Saída:</strong> NPN Normalmente Aberto (NO) - envia GND (LOW) quando detecta.</li>
+                    <li><strong>Frequência de resposta:</strong> 500 Hz</li>
+                </ul>
+            </div>
+            <div class="secao-info">
+                <h3>Aplicações Industriais ou IoT</h3>
+                <p>Contagem de peças metálicas em esteiras, sensores de fim de curso (limit switches) para eixos de máquinas CNC, posicionamento de robôs e medição de velocidade (contando dentes de uma engrenagem).</p>
+            </div>
+            <div class="secao-info">
+                <h3>Exemplo em um Projeto</h3>
+                <p><strong>Contador de Produção (IoT OEE):</strong> Um sensor LJ12A3 está voltado para as peças de aço que saem de uma máquina de corte. Cada vez que o sensor gera um pulso (LOW), o CLP ou ESP32 conta 1 peça. O sistema envia a contagem acumulada por minuto ao servidor na nuvem, permitindo que os gerentes vejam a produtividade (OEE) em tempo real num dashboard da planta.</p>
+            </div>
+        </div>
+    </main>
+    <footer class="rodape">
+        <div class="container">
+            <p>&copy; 2026 - Desenvolvido por Bernardo Jacomelli Rodrigues</p>
+        </div>
+    </footer>
+    <button id="btn-topo" title="Voltar ao topo">&#8679;</button>
+    <script src="../js/script.js"></script>
+</body>
+</html>
+
+

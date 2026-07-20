@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MFRC522 | Sensores IoT</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header class="cabecalho">
+        <div class="container header-container">
+            <div class="logo">IoT Sensors</div>
+            <nav id="nav">
+                <button id="btn-mobile" aria-label="Abrir Menu"><span id="hamburger"></span></button>
+                <ul id="menu">
+                    <li><a href="../index.html">Início</a></li>
+                    <li><a href="../arduino.html">Arduíno</a></li>
+                    <li><a href="../sensores.html" class="active">Sensores</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="container section">
+        <a href="../sensores.html" class="btn btn-outline" style="margin-bottom: 20px;">&larr; Voltar ao Catálogo</a>
+        <div class="sensor-header">
+            <img src="../imagens/mfrc522.png" alt="Sensor MFRC522">
+            <div class="sensor-specs">
+                <h1 style="font-size: 3rem; color: var(--azul-escuro);">MFRC522</h1>
+                <p style="font-size: 1.2rem; color: var(--cinza-texto); margin-bottom: 20px;">Categoria: RFID / Identificação</p>
+                <div class="spec-list">
+                    <div class="spec-item"><strong>Tipo de Sinal:</strong> SPI / I2C / UART</div>
+                    <div class="spec-item"><strong>Fabricante Comum:</strong> NXP Semiconductors</div>
+                </div>
+            </div>
+        </div>
+        <div class="secao-grid">
+            <div class="secao-info">
+                <h3>Conceito</h3>
+                <p>O MFRC522 é um chip leitor e gravador (transceiver) altamente integrado para comunicação sem contato em 13,56 MHz (RFID e NFC), permitindo a leitura e gravação de cartões e tags compatíveis.</p>
+            </div>
+            <div class="secao-info">
+                <h3>Princípio de Funcionamento</h3>
+                <p>O módulo gera um campo eletromagnético. Quando uma tag RFID passiva (que não tem bateria) entra nesse campo, a energia eletromagnética alimenta o microchip da tag. A tag então transmite seu código de identificação (UID) único de volta para o leitor alterando o campo magnético.</p>
+            </div>
+            <div class="secao-info secao-larga">
+                <h3>Principais Especificações Técnicas</h3>
+                <ul>
+                    <li><strong>Tensão de operação:</strong> 3.3V DC (Pinos tolerantes a 5V em módulos específicos, mas o chip usa 3.3V)</li>
+                    <li><strong>Frequência de operação:</strong> 13.56 MHz</li>
+                    <li><strong>Distância de leitura:</strong> Até 50 mm (dependendo do tamanho da antena e da tag)</li>
+                    <li><strong>Interface suportada:</strong> SPI (mais comum com Arduino), I2C, UART.</li>
+                </ul>
+            </div>
+            <div class="secao-info">
+                <h3>Aplicações Industriais ou IoT</h3>
+                <p>Controle de ponto de funcionários, rastreabilidade de produtos e paletes em logística (cadeia de suprimentos), controle de acesso a áreas restritas e máquinas, e sistemas de pedágio automatizado.</p>
+            </div>
+            <div class="secao-info">
+                <h3>Exemplo em um Projeto</h3>
+                <p><strong>Rastreamento Logístico:</strong> Caixas com tags RFID passam por uma esteira. O leitor MFRC522 registra o ID de cada caixa instantaneamente e atualiza o sistema ERP da fábrica via Wi-Fi (usando um ESP32), informando que o lote foi finalizado e enviado.</p>
+            </div>
+        </div>
+    </main>
+    <footer class="rodape">
+        <div class="container">
+            <p>&copy; 2026 - Desenvolvido por Bernardo Jacomelli Rodrigues</p>
+        </div>
+    </footer>
+    <button id="btn-topo" title="Voltar ao topo">&#8679;</button>
+    <script src="../js/script.js"></script>
+</body>
+</html>
+
+

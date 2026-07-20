@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DHT11 | Sensores IoT</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header class="cabecalho">
+        <div class="container header-container">
+            <div class="logo">IoT Sensors</div>
+            <nav id="nav">
+                <button id="btn-mobile" aria-label="Abrir Menu"><span id="hamburger"></span></button>
+                <ul id="menu">
+                    <li><a href="../index.html">Início</a></li>
+                    <li><a href="../arduino.html">Arduíno</a></li>
+                    <li><a href="../sensores.html" class="active">Sensores</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="container section">
+        <a href="../sensores.html" class="btn btn-outline" style="margin-bottom: 20px;">&larr; Voltar ao Catálogo</a>
+        <div class="sensor-header">
+            <img src="../imagens/dht11.png" alt="Sensor DHT11">
+            <div class="sensor-specs">
+                <h1 style="font-size: 3rem; color: var(--azul-escuro);">DHT11</h1>
+                <p style="font-size: 1.2rem; color: var(--cinza-texto); margin-bottom: 20px;">Categoria: Temperatura e Umidade</p>
+                <div class="spec-list">
+                    <div class="spec-item"><strong>Tipo de Sinal:</strong> Digital</div>
+                    <div class="spec-item"><strong>Fabricante Comum:</strong> Aosong Electronics, Módulos genéricos</div>
+                </div>
+            </div>
+        </div>
+        <div class="secao-grid">
+            <div class="secao-info">
+                <h3>Conceito</h3>
+                <p>O DHT11 é um sensor básico, de custo ultrabaixo, utilizado para medir a temperatura e a umidade do ar ao seu redor e fornecer uma saída digital através de um único pino de dados.</p>
+            </div>
+            <div class="secao-info">
+                <h3>Princípio de Funcionamento</h3>
+                <p>O sensor possui um elemento capacitivo sensível à umidade e um termistor NTC para medir a temperatura. Um microcontrolador interno de 8 bits processa essas grandezas analógicas e transmite os dados já digitalizados, dispensando o uso do conversor ADC do Arduíno.</p>
+            </div>
+            <div class="secao-info secao-larga">
+                <h3>Principais Especificações Técnicas</h3>
+                <ul>
+                    <li><strong>Tensão de operação:</strong> 3V a 5.5V DC</li>
+                    <li><strong>Faixa de medição (Umidade):</strong> 20% a 90% UR</li>
+                    <li><strong>Precisão (Umidade):</strong> ±5% UR</li>
+                    <li><strong>Faixa de medição (Temperatura):</strong> 0ºC a 50ºC</li>
+                    <li><strong>Precisão (Temperatura):</strong> ±2ºC</li>
+                </ul>
+            </div>
+            <div class="secao-info">
+                <h3>Aplicações Industriais ou IoT</h3>
+                <p>Monitoramento ambiental em salas limpas, armazéns, galpões logísticos e controle de climatização em estufas agrícolas automatizadas.</p>
+            </div>
+            <div class="secao-info">
+                <h3>Exemplo em um Projeto</h3>
+                <p><strong>Estufa Inteligente:</strong> O DHT11 monitora as condições internas da estufa. Se a temperatura subir além do ideal, o microcontrolador aciona os exaustores; se a umidade baixar, liga o sistema de irrigação por gotejamento.</p>
+            </div>
+        </div>
+    </main>
+    <footer class="rodape">
+        <div class="container">
+            <p>&copy; 2026 - Desenvolvido por Bernardo Jacomelli Rodrigues</p>
+        </div>
+    </footer>
+    <button id="btn-topo" title="Voltar ao topo">&#8679;</button>
+    <script src="../js/script.js"></script>
+</body>
+</html>
+
+

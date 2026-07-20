@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIR HC-SR501 | Sensores IoT</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header class="cabecalho">
+        <div class="container header-container">
+            <div class="logo">IoT Sensors</div>
+            <nav id="nav">
+                <button id="btn-mobile" aria-label="Abrir Menu"><span id="hamburger"></span></button>
+                <ul id="menu">
+                    <li><a href="../index.html">Início</a></li>
+                    <li><a href="../arduino.html">Arduíno</a></li>
+                    <li><a href="../sensores.html" class="active">Sensores</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="container section">
+        <a href="../sensores.html" class="btn btn-outline" style="margin-bottom: 20px;">&larr; Voltar ao Catálogo</a>
+        <div class="sensor-header">
+            <img src="../imagens/pir.png" alt="Sensor PIR HC-SR501">
+            <div class="sensor-specs">
+                <h1 style="font-size: 3rem; color: var(--azul-escuro);">PIR HC-SR501</h1>
+                <p style="font-size: 1.2rem; color: var(--cinza-texto); margin-bottom: 20px;">Categoria: Movimento / Presença</p>
+                <div class="spec-list">
+                    <div class="spec-item"><strong>Tipo de Sinal:</strong> Digital</div>
+                    <div class="spec-item"><strong>Fabricante Comum:</strong> Módulos genéricos open-hardware</div>
+                </div>
+            </div>
+        </div>
+        <div class="secao-grid">
+            <div class="secao-info">
+                <h3>Conceito</h3>
+                <p>O PIR (Passive Infrared) é um sensor capaz de detectar o movimento de pessoas, animais ou objetos que emitem radiação infravermelha (calor) dentro de seu campo de visão.</p>
+            </div>
+            <div class="secao-info">
+                <h3>Princípio de Funcionamento</h3>
+                <p>Todo corpo com temperatura acima do zero absoluto emite calor em forma de radiação infravermelha. O PIR possui cristais piroelétricos que geram energia quando expostos ao calor. Uma lente Fresnel (a cúpula branca) divide a área de detecção; quando um corpo quente passa de uma zona para outra, a variação térmica gera um pulso digital que acusa o movimento.</p>
+            </div>
+            <div class="secao-info secao-larga">
+                <h3>Principais Especificações Técnicas</h3>
+                <ul>
+                    <li><strong>Tensão de operação:</strong> 4.5V a 20V DC</li>
+                    <li><strong>Consumo de corrente:</strong> < 50uA</li>
+                    <li><strong>Distância de detecção:</strong> Ajustável entre 3 e 7 metros</li>
+                    <li><strong>Ângulo de detecção:</strong> < 110 graus</li>
+                    <li><strong>Tempo de atraso (Delay):</strong> Ajustável de 5s a 200s</li>
+                </ul>
+            </div>
+            <div class="secao-info">
+                <h3>Aplicações Industriais ou IoT</h3>
+                <p>Sistemas de segurança perimetral, alarmes de intrusão, ativação automática de iluminação em corredores e banheiros e contagem básica de acesso.</p>
+            </div>
+            <div class="secao-info">
+                <h3>Exemplo em um Projeto</h3>
+                <p><strong>Alarme IoT Anti-intrusão:</strong> Instalado em um armazém. À noite, se o PIR detectar calor em movimento, ele envia um sinal para o ESP32, que por sua vez manda um alerta via MQTT (nuvem) diretamente para o smartphone do supervisor e dispara uma sirene no local.</p>
+            </div>
+        </div>
+    </main>
+    <footer class="rodape">
+        <div class="container">
+            <p>&copy; 2026 - Desenvolvido por Bernardo Jacomelli Rodrigues</p>
+        </div>
+    </footer>
+    <button id="btn-topo" title="Voltar ao topo">&#8679;</button>
+    <script src="../js/script.js"></script>
+</body>
+</html>
+
+

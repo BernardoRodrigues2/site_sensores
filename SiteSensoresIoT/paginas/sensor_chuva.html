@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sensor de Chuva | Sensores IoT</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header class="cabecalho">
+        <div class="container header-container">
+            <div class="logo">IoT Sensors</div>
+            <nav id="nav">
+                <button id="btn-mobile" aria-label="Abrir Menu"><span id="hamburger"></span></button>
+                <ul id="menu">
+                    <li><a href="../index.html">Início</a></li>
+                    <li><a href="../arduino.html">Arduíno</a></li>
+                    <li><a href="../sensores.html" class="active">Sensores</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="container section">
+        <a href="../sensores.html" class="btn btn-outline" style="margin-bottom: 20px;">&larr; Voltar ao Catálogo</a>
+        <div class="sensor-header">
+            <img src="../imagens/chuva.png" alt="Sensor de Chuva" style="width: 300px; height: 300px; border-radius: 16px; object-fit: cover; ">
+            <div class="sensor-specs">
+                <h1 style="font-size: 3rem; color: var(--azul-escuro);">Sensor de Chuva</h1>
+                <p style="font-size: 1.2rem; color: var(--cinza-texto); margin-bottom: 20px;">Categoria: Umidade / Clima</p>
+                <div class="spec-list">
+                    <div class="spec-item"><strong>Tipo de Sinal:</strong> Analógico e Digital</div>
+                    <div class="spec-item"><strong>Fabricante Comum:</strong> Módulos genéricos (com chip LM393)</div>
+                </div>
+            </div>
+        </div>
+        <div class="secao-grid">
+            <div class="secao-info">
+                <h3>Conceito</h3>
+                <p>Composto por uma placa de detecção revestida de níquel (para resistir à oxidação) e um módulo de controle. Ele é usado para medir o acúmulo de água ou simplesmente detectar a presença de gotas de chuva.</p>
+            </div>
+            <div class="secao-info">
+                <h3>Princípio de Funcionamento</h3>
+                <p>A placa possui trilhas de cobre expostas, paralelas e entrelaçadas, mas não conectadas. Quando o painel está seco, a resistência elétrica é muito alta (circuito aberto). Quando uma gota de chuva cai sobre a placa, a água (que conduz eletricidade) fecha o contato entre as trilhas, diminuindo a resistência. O comparador no módulo traduz essa queda de resistência em um sinal.</p>
+            </div>
+            <div class="secao-info secao-larga">
+                <h3>Principais Especificações Técnicas</h3>
+                <ul>
+                    <li><strong>Tensão de operação:</strong> 3.3V a 5V DC</li>
+                    <li><strong>Saída Dupla:</strong> Digital (D0) para limite ajustado, Analógica (A0) para intensidade da chuva.</li>
+                    <li><strong>Sensibilidade:</strong> Ajustável via potenciômetro (trimpot) no módulo comparador.</li>
+                    <li><strong>Chip comparador:</strong> LM393</li>
+                </ul>
+            </div>
+            <div class="secao-info">
+                <h3>Aplicações Industriais ou IoT</h3>
+                <p>Estações meteorológicas autônomas, agricultura inteligente (desligar irrigação se já estiver chovendo), fechamento automático de claraboias ou janelas em fábricas/galpões.</p>
+            </div>
+            <div class="secao-info">
+                <h3>Exemplo em um Projeto</h3>
+                <p><strong>Irrigação Inteligente:</strong> Um sistema IoT agrícola está programado para irrigar a plantação às 18h. No entanto, se o Sensor de Chuva detectar precipitação intensa às 17h, o controlador cancela a irrigação automática, economizando água e energia e evitando encharcar o solo.</p>
+            </div>
+        </div>
+    </main>
+    <footer class="rodape">
+        <div class="container">
+            <p>&copy; 2026 - Desenvolvido por Bernardo Jacomelli Rodrigues</p>
+        </div>
+    </footer>
+    <button id="btn-topo" title="Voltar ao topo">&#8679;</button>
+    <script src="../js/script.js"></script>
+</body>
+</html>
+
+

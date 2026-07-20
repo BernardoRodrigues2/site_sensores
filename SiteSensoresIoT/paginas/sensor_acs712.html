@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ACS712 | Sensores IoT</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header class="cabecalho">
+        <div class="container header-container">
+            <div class="logo">IoT Sensors</div>
+            <nav id="nav">
+                <button id="btn-mobile" aria-label="Abrir Menu"><span id="hamburger"></span></button>
+                <ul id="menu">
+                    <li><a href="../index.html">Início</a></li>
+                    <li><a href="../arduino.html">Arduíno</a></li>
+                    <li><a href="../sensores.html" class="active">Sensores</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="container section">
+        <a href="../sensores.html" class="btn btn-outline" style="margin-bottom: 20px;">&larr; Voltar ao Catálogo</a>
+        <div class="sensor-header">
+            <img src="../imagens/acs712.png" alt="Sensor ACS712" style="width: 300px; height: 300px; border-radius: 16px; object-fit: cover; ">
+            <div class="sensor-specs">
+                <h1 style="font-size: 3rem; color: var(--azul-escuro);">ACS712</h1>
+                <p style="font-size: 1.2rem; color: var(--cinza-texto); margin-bottom: 20px;">Categoria: Corrente Elétrica</p>
+                <div class="spec-list">
+                    <div class="spec-item"><strong>Tipo de Sinal:</strong> Analógico</div>
+                    <div class="spec-item"><strong>Fabricante Comum:</strong> Allegro MicroSystems</div>
+                </div>
+            </div>
+        </div>
+        <div class="secao-grid">
+            <div class="secao-info">
+                <h3>Conceito</h3>
+                <p>O ACS712 é um sensor que fornece medição precisa de correntes AC e DC. É amplamente usado em sistemas de controle de motores elétricos, detecção de carga, e gerenciamento de energia.</p>
+            </div>
+            <div class="secao-info">
+                <h3>Princípio de Funcionamento</h3>
+                <p>Baseia-se no Efeito Hall. A corrente que flui através do condutor de cobre no chip gera um campo magnético. O sensor Hall interno detecta esse campo e o converte em uma voltagem proporcional à corrente que está sendo medida, isolando eletricamente o circuito de potência do circuito lógico (microcontrolador).</p>
+            </div>
+            <div class="secao-info secao-larga">
+                <h3>Principais Especificações Técnicas</h3>
+                <ul>
+                    <li><strong>Tensão de operação (VCC):</strong> 5V DC</li>
+                    <li><strong>Faixas de medição comuns (versões):</strong> 5A, 20A, 30A</li>
+                    <li><strong>Sensibilidade (versão 20A):</strong> 100 mV/A</li>
+                    <li><strong>Isolação galvânica:</strong> 2.1 kVRMS</li>
+                    <li><strong>Sinal de saída em corrente 0:</strong> VCC / 2 (Tipicamente 2.5V)</li>
+                </ul>
+            </div>
+            <div class="secao-info">
+                <h3>Aplicações Industriais ou IoT</h3>
+                <p>Sistemas de proteção contra sobrecarga, medição do consumo de energia (Smart Grids), gerenciamento de baterias industriais e diagnóstico de falhas em motores (variações anômalas de corrente indicam problemas mecânicos).</p>
+            </div>
+            <div class="secao-info">
+                <h3>Exemplo em um Projeto</h3>
+                <p><strong>Manutenção Preditiva de Motores:</strong> O ACS712 mede a corrente de um grande motor trifásico de uma esteira. Se um rolamento começar a desgastar, o motor fará mais força e a corrente aumentará gradualmente. O microcontrolador envia esses dados para o painel de IoT, avisando a equipe antes que o motor queime.</p>
+            </div>
+        </div>
+    </main>
+    <footer class="rodape">
+        <div class="container">
+            <p>&copy; 2026 - Desenvolvido por Bernardo Jacomelli Rodrigues</p>
+        </div>
+    </footer>
+    <button id="btn-topo" title="Voltar ao topo">&#8679;</button>
+    <script src="../js/script.js"></script>
+</body>
+</html>
+
+

@@ -1,0 +1,208 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sensores IoT e Industriais | Arduíno</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="cabecalho">
+        <div class="container header-container">
+            <div class="logo">IoT Sensors</div>
+            <nav id="nav">
+                <button id="btn-mobile" aria-label="Abrir Menu">
+                    <span id="hamburger"></span>
+                </button>
+                <ul id="menu">
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="arduino.html" class="active">Arduíno</a></li>
+                    <li><a href="sensores.html">Sensores</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="section container">
+            <h2 class="section-title">O que é o Arduíno?</h2>
+            <div class="secao-info">
+                <h3>Conceito e Funcionamento</h3>
+                <p>
+                    O Arduíno é uma plataforma de prototipagem eletrônica de código aberto (open-source) baseada em hardware e software flexíveis e fáceis de usar. É constituído por um microcontrolador (o "cérebro"), portas de entrada e saída (pinos digitais e analógicos) e um ambiente de desenvolvimento integrado (IDE). 
+                </p>
+                <p style="margin-top: 15px;">
+                    Seu <strong>funcionamento</strong> baseia-se em um ciclo infinito onde o microcontrolador lê sinais de <strong>sensores</strong> (entradas), processa essas informações com base no código programado (lógica de controle) e aciona <strong>atuadores</strong> (saídas, como LEDs, motores ou relés). Isso o torna perfeito para desenvolver projetos de Internet das Coisas e simular ambientes de Automação Industrial.
+                </p>
+            </div>
+            <h2 class="section-title" style="margin-top: 50px;">Exemplos de Programação</h2>
+            <p style="text-align: center; color: var(--text-muted); margin-bottom: 40px;">Como integrar e ler dados de nossos 10 sensores principais utilizando o Arduíno.</p>
+            <div class="secao-grid">
+                <div class="secao-info">
+                    <h3>1. DHT11 (Temperatura e Umidade)</h3>
+<pre><code>#include &lt;DHT.h&gt;
+#define DHTPIN 2
+#define DHTTYPE DHT11
+DHT dht(DHTPIN, DHTTYPE);
+void setup() {
+  Serial.begin(9600);
+  dht.begin();
+}
+void loop() {
+  float h = dht.readHumidity();
+  float t = dht.readTemperature();
+  Serial.print("Temp: "); Serial.println(t);
+  delay(2000);
+}</code></pre>
+                </div>
+                <div class="secao-info">
+                    <h3>2. HC-SR04 (Ultrassônico/Distância)</h3>
+<pre><code>#define trigPin 9
+#define echoPin 10
+void setup() {
+  Serial.begin(9600);
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+}
+void loop() {
+  digitalWrite(trigPin, LOW); delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH); delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+  long duracao = pulseIn(echoPin, HIGH);
+  long distancia = (duracao/2) / 29.1;
+  Serial.println(distancia);
+  delay(1000);
+}</code></pre>
+                </div>
+                <div class="secao-info">
+                    <h3>3. LDR (Luminosidade)</h3>
+<pre><code>int pinoLDR = A0;
+void setup() {
+  Serial.begin(9600);
+}
+void loop() {
+  int valorLuz = analogRead(pinoLDR);
+  Serial.print("Luminosidade: ");
+  Serial.println(valorLuz);
+  delay(500);
+}</code></pre>
+                </div>
+                <div class="secao-info">
+                    <h3>4. PIR HC-SR501 (Movimento)</h3>
+<pre><code>int pinoPIR = 7;
+void setup() {
+  pinMode(pinoPIR, INPUT);
+  Serial.begin(9600);
+}
+void loop() {
+  int movimento = digitalRead(pinoPIR);
+  if (movimento == HIGH) {
+    Serial.println("Movimento Detectado!");
+  }
+  delay(1000);
+}</code></pre>
+                </div>
+                <div class="secao-info">
+                    <h3>5. MQ-2 (Gás e Fumaça)</h3>
+<pre><code>int pinoGas = A1;
+void setup() {
+  Serial.begin(9600);
+}
+void loop() {
+  int nivelGas = analogRead(pinoGas);
+  Serial.print("Nivel de Gas: ");
+  Serial.println(nivelGas);
+  if(nivelGas > 400) Serial.println("ALERTA!");
+  delay(1000);
+}</code></pre>
+                </div>
+                <div class="secao-info">
+                    <h3>6. MFRC522 (RFID)</h3>
+<pre><code>#include &lt;SPI.h&gt;
+#include &lt;MFRC522.h&gt;
+#define SS_PIN 10
+#define RST_PIN 9
+MFRC522 mfrc522(SS_PIN, RST_PIN);
+void setup() {
+  Serial.begin(9600);
+  SPI.begin();
+  mfrc522.PCD_Init();
+}
+void loop() {
+  if (mfrc522.PICC_IsNewCardPresent()) {
+    // Ler ID do cartao...
+  }
+}</code></pre>
+                </div>
+                <div class="secao-info">
+                    <h3>7. ACS712 (Corrente Elétrica)</h3>
+<pre><code>int pinoCorrente = A2;
+void setup() {
+  Serial.begin(9600);
+}
+void loop() {
+  int valor = analogRead(pinoCorrente);
+  float tensao = (valor / 1024.0) * 5000; 
+  float corrente = (tensao - 2500) / 66;
+  Serial.print("Corrente (A): ");
+  Serial.println(corrente);
+  delay(1000);
+}</code></pre>
+                </div>
+                <div class="secao-info">
+                    <h3>8. Sensor de Chuva</h3>
+<pre><code>int pinoChuva = A3;
+void setup() {
+  Serial.begin(9600);
+}
+void loop() {
+  int leitura = analogRead(pinoChuva);
+  Serial.print("Nivel: ");
+  Serial.println(leitura);
+  if (leitura < 500) Serial.println("Chovendo!");
+  delay(1000);
+}</code></pre>
+                </div>
+                <div class="secao-info">
+                    <h3>9. KY-037 (Sensor de Som)</h3>
+<pre><code>int pinoSom = A4;
+int pinoDigital = 8;
+void setup() {
+  Serial.begin(9600);
+  pinMode(pinoDigital, INPUT);
+}
+void loop() {
+  int nivelSom = analogRead(pinoSom);
+  int detectado = digitalRead(pinoDigital);
+  Serial.println(nivelSom);
+  delay(500);
+}</code></pre>
+                </div>
+                <div class="secao-info">
+                    <h3>10. Sensor Indutivo (LJ12A3)</h3>
+<pre><code>int pinoIndutivo = 4;
+void setup() {
+  Serial.begin(9600);
+  pinMode(pinoIndutivo, INPUT);
+}
+void loop() {
+  int metalDetectado = digitalRead(pinoIndutivo);
+  if (metalDetectado == HIGH) {
+    Serial.println("Metal Detectado!");
+  }
+  delay(500);
+}</code></pre>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="rodape">
+        <div class="container">
+            <p>&copy; 2026 - Desenvolvido por Bernardo Jacomelli Rodrigues</p>
+        </div>
+    </footer>
+    <button id="btn-topo" title="Voltar ao topo">&#8679;</button>
+    <script src="js/script.js"></script>
+</body>
+</html>
+
+

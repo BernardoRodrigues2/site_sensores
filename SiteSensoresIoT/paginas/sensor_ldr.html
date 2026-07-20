@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LDR | Sensores IoT</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header class="cabecalho">
+        <div class="container header-container">
+            <div class="logo">IoT Sensors</div>
+            <nav id="nav">
+                <button id="btn-mobile" aria-label="Abrir Menu"><span id="hamburger"></span></button>
+                <ul id="menu">
+                    <li><a href="../index.html">Início</a></li>
+                    <li><a href="../arduino.html">Arduíno</a></li>
+                    <li><a href="../sensores.html" class="active">Sensores</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="container section">
+        <a href="../sensores.html" class="btn btn-outline" style="margin-bottom: 20px;">&larr; Voltar ao Catálogo</a>
+        <div class="sensor-header">
+            <img src="../imagens/ldr.png" alt="Sensor LDR">
+            <div class="sensor-specs">
+                <h1 style="font-size: 3rem; color: var(--azul-escuro);">LDR</h1>
+                <p style="font-size: 1.2rem; color: var(--cinza-texto); margin-bottom: 20px;">Categoria: Luminosidade</p>
+                <div class="spec-list">
+                    <div class="spec-item"><strong>Tipo de Sinal:</strong> Analógico</div>
+                    <div class="spec-item"><strong>Fabricante Comum:</strong> PerkinElmer, Silonex, Componentes discretos</div>
+                </div>
+            </div>
+        </div>
+        <div class="secao-grid">
+            <div class="secao-info">
+                <h3>Conceito</h3>
+                <p>O LDR (Light Dependent Resistor) ou fotoresistor é um componente eletrônico passivo cuja resistência elétrica varia inversamente à intensidade de luz que incide sobre ele.</p>
+            </div>
+            <div class="secao-info">
+                <h3>Princípio de Funcionamento</h3>
+                <p>Feito de material semicondutor (geralmente Sulfeto de Cádmio). No escuro, a resistência é altíssima (megaohms), funcionando quase como um isolante. Quando fótons de luz atingem o componente, elétrons são liberados, aumentando a condutividade e derrubando a resistência (para poucos kilohms ou ohms).</p>
+            </div>
+            <div class="secao-info secao-larga">
+                <h3>Principais Especificações Técnicas</h3>
+                <ul>
+                    <li><strong>Tensão máxima:</strong> ~150V DC (depende do modelo)</li>
+                    <li><strong>Resistência no escuro:</strong> > 1 MΩ</li>
+                    <li><strong>Resistência à luz (10 lux):</strong> 10 kΩ a 20 kΩ</li>
+                    <li><strong>Tempo de resposta:</strong> 20 a 30 ms</li>
+                </ul>
+            </div>
+            <div class="secao-info">
+                <h3>Aplicações Industriais ou IoT</h3>
+                <p>Sistemas de iluminação pública inteligentes, controle automático de persianas, detecção de presença e qualidade de embalagens em linhas de montagem (por bloqueio de luz).</p>
+            </div>
+            <div class="secao-info">
+                <h3>Exemplo em um Projeto</h3>
+                <p><strong>Iluminação Pública Inteligente (Smart City):</strong> O LDR detecta quando o Sol se põe. O microcontrolador lê a queda de luminosidade e envia um comando para ligar as luminárias do pátio industrial, economizando energia durante o dia.</p>
+            </div>
+        </div>
+    </main>
+    <footer class="rodape">
+        <div class="container">
+            <p>&copy; 2026 - Desenvolvido por Bernardo Jacomelli Rodrigues</p>
+        </div>
+    </footer>
+    <button id="btn-topo" title="Voltar ao topo">&#8679;</button>
+    <script src="../js/script.js"></script>
+</body>
+</html>
+
+

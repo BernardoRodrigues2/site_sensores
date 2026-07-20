@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HC-SR04 | Sensores IoT</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header class="cabecalho">
+        <div class="container header-container">
+            <div class="logo">IoT Sensors</div>
+            <nav id="nav">
+                <button id="btn-mobile" aria-label="Abrir Menu"><span id="hamburger"></span></button>
+                <ul id="menu">
+                    <li><a href="../index.html">Início</a></li>
+                    <li><a href="../arduino.html">Arduíno</a></li>
+                    <li><a href="../sensores.html" class="active">Sensores</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="container section">
+        <a href="../sensores.html" class="btn btn-outline" style="margin-bottom: 20px;">&larr; Voltar ao Catálogo</a>
+        <div class="sensor-header">
+            <img src="../imagens/hcsr04.png" alt="Sensor HC-SR04">
+            <div class="sensor-specs">
+                <h1 style="font-size: 3rem; color: var(--azul-escuro);">HC-SR04</h1>
+                <p style="font-size: 1.2rem; color: var(--cinza-texto); margin-bottom: 20px;">Categoria: Distância / Proximidade</p>
+                <div class="spec-list">
+                    <div class="spec-item"><strong>Tipo de Sinal:</strong> Digital (Pulsos)</div>
+                    <div class="spec-item"><strong>Fabricante Comum:</strong> Elecfreaks, Módulos genéricos asiáticos</div>
+                </div>
+            </div>
+        </div>
+        <div class="secao-grid">
+            <div class="secao-info">
+                <h3>Conceito</h3>
+                <p>O HC-SR04 é um módulo emissor/receptor que utiliza ondas sonoras de alta frequência para medir, sem contato físico, a distância entre o sensor e um objeto à sua frente.</p>
+            </div>
+            <div class="secao-info">
+                <h3>Princípio de Funcionamento</h3>
+                <p>Funciona pelo princípio de ecolocalização. O transmissor (Trig) envia um pulso ultrassônico (40 kHz) que viaja pelo ar, bate no obstáculo e retorna. O receptor (Echo) capta o sinal e calcula o tempo de voo (Time of Flight). A distância é obtida multiplicando o tempo pela velocidade do som.</p>
+            </div>
+            <div class="secao-info secao-larga">
+                <h3>Principais Especificações Técnicas</h3>
+                <ul>
+                    <li><strong>Tensão de operação:</strong> 5V DC</li>
+                    <li><strong>Corrente de operação:</strong> 15mA</li>
+                    <li><strong>Faixa de detecção:</strong> 2 cm a 400 cm</li>
+                    <li><strong>Precisão:</strong> ~3 mm</li>
+                    <li><strong>Ângulo do feixe:</strong> 15 graus</li>
+                </ul>
+            </div>
+            <div class="secao-info">
+                <h3>Aplicações Industriais ou IoT</h3>
+                <p>Medição de nível de líquidos em tanques e silos (que não geram espuma), sistemas anti-colisão em veículos autônomos industriais (AGVs) e controle de presença em esteiras.</p>
+            </div>
+            <div class="secao-info">
+                <h3>Exemplo em um Projeto</h3>
+                <p><strong>Monitoramento de Nível de Caixa D'água:</strong> O sensor é instalado na tampa da caixa. Ao calcular a distância até a lâmina d'água, o microcontrolador sabe o volume restante. Caso o nível baixe criticamente, uma bomba de água é acionada via relé.</p>
+            </div>
+        </div>
+    </main>
+    <footer class="rodape">
+        <div class="container">
+            <p>&copy; 2026 - Desenvolvido por Bernardo Jacomelli Rodrigues</p>
+        </div>
+    </footer>
+    <button id="btn-topo" title="Voltar ao topo">&#8679;</button>
+    <script src="../js/script.js"></script>
+</body>
+</html>
+
+

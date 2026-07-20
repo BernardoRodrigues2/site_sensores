@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MQ-2 | Sensores IoT</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header class="cabecalho">
+        <div class="container header-container">
+            <div class="logo">IoT Sensors</div>
+            <nav id="nav">
+                <button id="btn-mobile" aria-label="Abrir Menu"><span id="hamburger"></span></button>
+                <ul id="menu">
+                    <li><a href="../index.html">Início</a></li>
+                    <li><a href="../arduino.html">Arduíno</a></li>
+                    <li><a href="../sensores.html" class="active">Sensores</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="container section">
+        <a href="../sensores.html" class="btn btn-outline" style="margin-bottom: 20px;">&larr; Voltar ao Catálogo</a>
+        <div class="sensor-header">
+            <img src="../imagens/mq2.png" alt="Sensor MQ-2">
+            <div class="sensor-specs">
+                <h1 style="font-size: 3rem; color: var(--azul-escuro);">MQ-2</h1>
+                <p style="font-size: 1.2rem; color: var(--cinza-texto); margin-bottom: 20px;">Categoria: Gás e Qualidade do Ar</p>
+                <div class="spec-list">
+                    <div class="spec-item"><strong>Tipo de Sinal:</strong> Analógico e Digital (com trimpot)</div>
+                    <div class="spec-item"><strong>Fabricante Comum:</strong> Hanwei Electronics</div>
+                </div>
+            </div>
+        </div>
+        <div class="secao-grid">
+            <div class="secao-info">
+                <h3>Conceito</h3>
+                <p>O MQ-2 é um sensor semicondutor de gás, sensível a gases inflamáveis e fumaça. Muito utilizado em detectores de vazamento de gás residenciais e industriais.</p>
+            </div>
+            <div class="secao-info">
+                <h3>Princípio de Funcionamento</h3>
+                <p>Ele possui um elemento aquecedor interno e uma fina camada de Dióxido de Estanho (SnO2). Em ar limpo, o SnO2 possui baixa condutividade. Na presença de gases combustíveis, a condutividade aumenta de acordo com a concentração do gás. Um circuito simples converte essa mudança de condutividade em um sinal de tensão correspondente.</p>
+            </div>
+            <div class="secao-info secao-larga">
+                <h3>Principais Especificações Técnicas</h3>
+                <ul>
+                    <li><strong>Tensão de operação:</strong> 5V DC</li>
+                    <li><strong>Gases detectados:</strong> GLP, Propano, Metano, Hidrogênio, Álcool, Fumaça.</li>
+                    <li><strong>Faixa de detecção:</strong> 300 a 10.000 ppm (partes por milhão)</li>
+                    <li><strong>Necessidade de pré-aquecimento:</strong> Sim (o aquecedor interno consome cerca de 800mW)</li>
+                </ul>
+            </div>
+            <div class="secao-info">
+                <h3>Aplicações Industriais ou IoT</h3>
+                <p>Detecção de vazamento em tubulações de gás, monitoramento de ambientes classificados na indústria petroquímica, prevenção de incêndios florestais e monitoramento da qualidade do ar em minas.</p>
+            </div>
+            <div class="secao-info">
+                <h3>Exemplo em um Projeto</h3>
+                <p><strong>Detector de Vazamento de GLP:</strong> Instalado próximo às tubulações em uma cozinha industrial. O sensor lê continuamente a concentração. Se atingir um nível perigoso, o microcontrolador fecha automaticamente a válvula solenoide central de gás e ativa um exaustor, evitando explosões.</p>
+            </div>
+        </div>
+    </main>
+    <footer class="rodape">
+        <div class="container">
+            <p>&copy; 2026 - Desenvolvido por Bernardo Jacomelli Rodrigues</p>
+        </div>
+    </footer>
+    <button id="btn-topo" title="Voltar ao topo">&#8679;</button>
+    <script src="../js/script.js"></script>
+</body>
+</html>
+
+
