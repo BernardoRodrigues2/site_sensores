@@ -323,3 +323,80 @@ code {
         display: block;
     }
 }
+
+/* Circuitos realizados em aula */
+.circuitos {
+    max-width: 1400px;
+    padding: 40px 20px;
+}
+
+.circuitos-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+/* As sete linhas compartilham a altura entre os dois cards. */
+.circuito {
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 7;
+    row-gap: 16px;
+    min-width: 0;
+}
+
+.circuito > * {
+    min-width: 0;
+    margin: 0;
+}
+
+.circuito h2 {
+    color: var(--azul-escuro);
+    font-size: 1.5rem;
+}
+
+.circuito h3 {
+    margin: 0;
+}
+
+.circuito pre {
+    height: 360px;
+    overflow: auto;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    text-align: left;
+}
+
+.circuito pre:focus-visible {
+    outline: 2px solid var(--azul-claro);
+    outline-offset: 3px;
+}
+
+.circuito-video {
+    display: block;
+    justify-self: center;
+    width: 100%;
+    max-width: 315px;
+    aspect-ratio: 9 / 16;
+    height: auto;
+    border: 0;
+    border-radius: 8px;
+    background-color: var(--cinza-fundo);
+}
+
+.circuito > .btn {
+    justify-self: center;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .circuitos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .circuito {
+        grid-template-rows: auto;
+        grid-row: auto;
+        padding: 20px;
+    }
+}

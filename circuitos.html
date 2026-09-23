@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sensores IoT e Industriais | Circuitos em Aula</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="cabecalho">
+        <div class="container header-container">
+            <div class="logo">IoT Sensors</div>
+            <nav id="nav">
+                <button id="btn-mobile" aria-label="Abrir Menu">
+                    <span id="hamburger"></span>
+                </button>
+                <ul id="menu">
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="arduino.html">Arduíno</a></li>
+                    <li><a href="sensores.html">Sensores</a></li>
+                    <li><a href="circuitos.html" class="active" aria-current="page">Circuitos</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="section container circuitos">
+            <h1 class="section-title">Circuitos realizados em aula</h1>
+            <p>Confira os circuitos realizados em aula, com exemplos de código e vídeos das práticas.</p>
+            <div class="secao-grid circuitos-grid">
+                <article class="secao-info circuito">
+                    <h2>Circuito com sensor de presença</h2>
+                    <p>O sensor PIR detecta movimento por variações na radiação infravermelha, princípio utilizado em alarmes e iluminação automática.</p>
+                    <p>No exemplo, o sensor usa o pino 2 e controla o LED no pino 13: ao detectar movimento, o LED acende.</p>
+                    <h3>Exemplo em C++</h3>
+<pre tabindex="0" aria-label="Exemplo C++ do sensor de presença"><code>const int pir = 2;
+const int led = 13;
+
+void setup() {
+  pinMode(pir, INPUT);
+  pinMode(led, OUTPUT);
+}
+
+void loop() {
+  int movimento = digitalRead(pir);
+  digitalWrite(led, movimento);
+  delay(100);
+}</code></pre>
+                    <iframe class="circuito-video" src="https://www.youtube.com/embed/SK4CNiemLFM" title="Circuito com sensor de presença realizado em aula" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <a class="btn btn-outline" href="https://www.youtube.com/shorts/SK4CNiemLFM?feature=share" target="_blank" rel="noopener noreferrer">Assistir no YouTube</a>
+                </article>
+                <article class="secao-info circuito">
+                    <h2>Circuito com sensor ultrassônico</h2>
+                    <p>O sensor mede a distância pelo tempo de retorno de um pulso sonoro, permitindo identificar a aproximação de objetos.</p>
+                    <p>No exemplo, Trig usa o pino 9 e Echo, o pino 10. A distância em centímetros aparece no Monitor Serial, configurado para 9600 baud.</p>
+                    <h3>Exemplo em C++</h3>
+<pre tabindex="0" aria-label="Exemplo C++ do sensor ultrassônico"><code>const int trig = 9;
+const int echo = 10;
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(trig, OUTPUT);
+  pinMode(echo, INPUT);
+}
+
+void loop() {
+  digitalWrite(trig, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trig, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trig, LOW);
+
+  unsigned long tempo = pulseIn(echo, HIGH, 30000);
+  if (tempo &gt; 0) Serial.println(tempo * 0.0343 / 2); // Distância em cm
+  delay(500);
+}</code></pre>
+                    <iframe class="circuito-video" src="https://www.youtube.com/embed/ZgIiF_DsfPs" title="Circuito com sensor ultrassônico realizado em aula" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <a class="btn btn-outline" href="https://www.youtube.com/shorts/ZgIiF_DsfPs?feature=share" target="_blank" rel="noopener noreferrer">Assistir no YouTube</a>
+                </article>
+            </div>
+        </section>
+    </main>
+    <footer class="rodape">
+        <div class="container">
+            <p>&copy; 2026 - Desenvolvido por Bernardo Jacomelli Rodrigues</p>
+        </div>
+    </footer>
+    <button id="btn-topo" title="Voltar ao topo">&#8679;</button>
+    <script src="js/script.js"></script>
+</body>
+</html>
+
+
