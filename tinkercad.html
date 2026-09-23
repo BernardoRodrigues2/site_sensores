@@ -1,0 +1,302 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sensores IoT e Industriais | Desafios do Tinkercad</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/svg+xml" href="imagens/favicon.svg">
+</head>
+<body>
+    <header class="cabecalho">
+        <div class="container header-container">
+            <div class="logo">IoT Sensors</div>
+            <nav id="nav">
+                <button id="btn-mobile" aria-label="Abrir Menu">
+                    <span id="hamburger"></span>
+                </button>
+                <ul id="menu">
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="arduino.html">Arduíno</a></li>
+                    <li><a href="sensores.html">Sensores</a></li>
+                    <li><a href="circuitos.html">Circuitos</a></li>
+                    <li><a href="tinkercad.html" class="active" aria-current="page">Tinkercad</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="section container circuitos">
+            <h1 class="section-title">Desafios do Tinkercad</h1>
+            <p>Três práticas de simulação com Arduino, sensores e LEDs. Confira os códigos e as demonstrações de cada desafio.</p>
+            <nav class="desafios-atalhos" aria-label="Escolher desafio">
+                <a class="btn btn-outline" href="#desafio-1">1. Iluminação</a>
+                <a class="btn btn-outline" href="#desafio-2">2. Ambiente</a>
+                <a class="btn btn-outline" href="#desafio-3">3. Distância</a>
+            </nav>
+            <div class="secao-grid desafios-tinkercad">
+                <article class="secao-info desafio-tinkercad" id="desafio-1" aria-labelledby="titulo-desafio-1">
+                    <h2 id="titulo-desafio-1">1. Iluminação inteligente</h2>
+                    <p>O LED acende quando o PIR detecta movimento e o LDR indica pouca luz. A prática combina duas leituras para controlar a iluminação automaticamente.</p>
+                    <p>PIR no pino 2, LDR em A0 e LED no pino 8. O programa considera escuro quando a leitura do LDR fica abaixo de 500.</p>
+                    <div class="desafio-conteudo">
+                        <div class="desafio-codigo">
+                            <h3>Código em C++</h3>
+                            <pre tabindex="0" aria-label="Código do desafio 1"><code>// ==========================================
+// C&#211;DIGO DO DESAFIO 1
+// ==========================================
+const int pinoPIR = 2;
+const int pinoLDR = A0;
+const int pinoLED = 8;
+
+int limiteLuz = 500;
+
+void setup() {
+
+  pinMode(pinoPIR, INPUT);
+  pinMode(pinoLED, OUTPUT);
+
+  Serial.begin(9600);
+}
+
+void loop() {
+
+  int movimento = digitalRead(pinoPIR);
+  int luminosidade = analogRead(pinoLDR);
+
+  bool escuro = luminosidade &lt; limiteLuz;
+
+  if (movimento == HIGH &amp;&amp; escuro) {
+
+    digitalWrite(pinoLED, HIGH);
+
+    Serial.println(&quot;Presenca detectada - ambiente escuro - LED LIGADO&quot;);
+  }
+  else {
+
+    digitalWrite(pinoLED, LOW);
+
+    Serial.println(&quot;LED DESLIGADO&quot;);
+  }
+
+  Serial.print(&quot;Movimento: &quot;);
+  Serial.print(movimento);
+
+  Serial.print(&quot; | Luminosidade: &quot;);
+  Serial.print(luminosidade);
+
+  Serial.print(&quot; | Limite: &quot;);
+  Serial.println(limiteLuz);
+
+  delay(500);
+}</code></pre>
+                        </div>
+                        <div class="desafio-demonstracao">
+                            <h3>Demonstração da prática</h3>
+                            <video class="tinkercad-video" controls preload="metadata" playsinline aria-label="Vídeo do desafio 1">
+                                <source src="videos/tinkercad/desafio-1.mp4" type="video/mp4">
+                                Seu navegador não suporta este vídeo. Use o link abaixo para abri-lo.
+                            </video>
+                            <a class="btn btn-outline" href="videos/tinkercad/desafio-1.mp4" target="_blank" rel="noopener noreferrer">Abrir vídeo</a>
+                        </div>
+                    </div>
+                </article>
+                <article class="secao-info desafio-tinkercad" id="desafio-2" aria-labelledby="titulo-desafio-2">
+                    <h2 id="titulo-desafio-2">2. Ambiente inteligente</h2>
+                    <p>As leituras de temperatura e umidade controlam três LEDs: verde para condição normal, vermelho para temperatura alta e amarelo para umidade baixa.</p>
+                    <p>Temperatura em A0, umidade em A1 e LEDs nos pinos 8, 9 e 10. Os alertas são acionados acima de 30 °C ou abaixo de 40% na escala de umidade do programa.</p>
+                    <div class="desafio-conteudo">
+                        <div class="desafio-codigo">
+                            <h3>Código em C++</h3>
+                            <pre tabindex="0" aria-label="Código do desafio 2"><code>// ==========================================
+// C&#211;DIGO DO DESAFIO 2
+// ==========================================
+// Pinos dos LEDs
+const int LED_VERDE = 8;
+const int LED_VERMELHO = 9;
+const int LED_AMARELO = 10;
+
+// Pinos dos sensores
+const int SENSOR_TEMP = A0;
+const int SENSOR_UMIDADE = A1;
+
+// Valores de refer&#234;ncia
+const float LIMITE_TEMP = 30.0;
+const int LIMITE_UMIDADE = 40;
+
+void setup() {
+
+  pinMode(LED_VERDE, OUTPUT);
+  pinMode(LED_VERMELHO, OUTPUT);
+  pinMode(LED_AMARELO, OUTPUT);
+
+  Serial.begin(9600);
+}
+
+void loop() {
+
+  // Leitura dos sensores
+  int leituraTemp = analogRead(SENSOR_TEMP);
+  int leituraUmidade = analogRead(SENSOR_UMIDADE);
+
+  // Convers&#227;o da leitura do TMP para temperatura
+  float temperatura = (leituraTemp * 5.0 / 1023.0 - 0.5) * 100.0;
+
+  // Convers&#227;o da leitura do sensor de umidade para porcentagem
+  int umidade = map(leituraUmidade, 0, 1023, 0, 100);
+
+  // Verifica as condi&#231;&#245;es
+  bool temperaturaAlta = temperatura &gt; LIMITE_TEMP;
+  bool umidadeBaixa = umidade &lt; LIMITE_UMIDADE;
+
+  // Primeiro desligamos todos os LEDs
+  digitalWrite(LED_VERDE, LOW);
+  digitalWrite(LED_VERMELHO, LOW);
+  digitalWrite(LED_AMARELO, LOW);
+
+  // Temperatura alta
+  if (temperaturaAlta) {
+    digitalWrite(LED_VERMELHO, HIGH);
+  }
+
+  // Umidade baixa
+  if (umidadeBaixa) {
+    digitalWrite(LED_AMARELO, HIGH);
+  }
+
+  // Condi&#231;&#227;o normal
+  if (!temperaturaAlta &amp;&amp; !umidadeBaixa) {
+    digitalWrite(LED_VERDE, HIGH);
+  }
+
+  // Monitor Serial
+  Serial.print(&quot;Temperatura: &quot;);
+  Serial.print(temperatura);
+  Serial.print(&quot; C | Umidade: &quot;);
+  Serial.print(umidade);
+  Serial.println(&quot;%&quot;);
+
+  if (temperaturaAlta &amp;&amp; umidadeBaixa) {
+    Serial.println(&quot;ALERTA: Temperatura alta + Umidade baixa!&quot;);
+  }
+  else if (temperaturaAlta) {
+    Serial.println(&quot;ALERTA: Temperatura acima do limite!&quot;);
+  }
+  else if (umidadeBaixa) {
+    Serial.println(&quot;ALERTA: Umidade abaixo do limite!&quot;);
+  }
+  else {
+    Serial.println(&quot;AMBIENTE NORMAL&quot;);
+  }
+
+  Serial.println(&quot;-----------------------------&quot;);
+
+  delay(1000);
+}</code></pre>
+                        </div>
+                        <div class="desafio-demonstracao">
+                            <h3>Demonstração da prática</h3>
+                            <video class="tinkercad-video" controls preload="metadata" playsinline aria-label="Vídeo do desafio 2">
+                                <source src="videos/tinkercad/desafio-3.mp4" type="video/mp4">
+                                Seu navegador não suporta este vídeo. Use o link abaixo para abri-lo.
+                            </video>
+                            <a class="btn btn-outline" href="videos/tinkercad/desafio-3.mp4" target="_blank" rel="noopener noreferrer">Abrir vídeo</a>
+                        </div>
+                    </div>
+                </article>
+                <article class="secao-info desafio-tinkercad" id="desafio-3" aria-labelledby="titulo-desafio-3">
+                    <h2 id="titulo-desafio-3">3. Distância e iluminação</h2>
+                    <p>O potenciômetro ajusta o limite de distância entre 20 e 70 cm. Conforme o objeto se aproxima, o LED passa de apagado para piscando e, depois, aceso.</p>
+                    <p>Sinal ultrassônico no pino 7, potenciômetro em A0 e LED no pino 13. O Monitor Serial mostra a distância e os estados LIVRE, ATENCAO e PARE.</p>
+                    <div class="desafio-conteudo">
+                        <div class="desafio-codigo">
+                            <h3>Código em C++</h3>
+                            <pre tabindex="0" aria-label="Código do desafio 3"><code>// ==========================================
+// C&#211;DIGO DO DESAFIO 3
+// ==========================================
+const byte LED = 13;
+const byte PING = 7;
+const byte AJUSTE = A0;
+
+float medirDistancia() {
+
+  pinMode(PING, OUTPUT);
+
+  digitalWrite(PING, LOW);
+  delayMicroseconds(2);
+
+  digitalWrite(PING, HIGH);
+  delayMicroseconds(5);
+
+  digitalWrite(PING, LOW);
+
+  pinMode(PING, INPUT);
+
+  return pulseIn(PING, HIGH) / 58.0;
+}
+
+void setup() {
+  pinMode(LED, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop() {
+
+  int limite = map(analogRead(AJUSTE), 0, 1023, 20, 70);
+  float distancia = medirDistancia();
+
+  Serial.print(&quot;Leitura = &quot;);
+  Serial.print(distancia);
+  Serial.print(&quot;cm | Configurado = &quot;);
+  Serial.print(limite);
+  Serial.println(&quot;cm&quot;);
+
+  if (distancia &gt;= limite) {
+
+    digitalWrite(LED, LOW);
+    Serial.println(&quot;STATUS: LIVRE&quot;);
+
+  } 
+  else if (distancia &gt;= limite * 0.45) {
+
+    digitalWrite(LED, HIGH);
+    delay(180);
+
+    digitalWrite(LED, LOW);
+    delay(180);
+
+    Serial.println(&quot;STATUS: ATENCAO&quot;);
+
+  } 
+  else {
+
+    digitalWrite(LED, HIGH);
+    Serial.println(&quot;STATUS: PARE&quot;);
+
+  }
+}</code></pre>
+                        </div>
+                        <div class="desafio-demonstracao">
+                            <h3>Demonstração da prática</h3>
+                            <video class="tinkercad-video" controls preload="metadata" playsinline aria-label="Vídeo do desafio 3">
+                                <source src="videos/tinkercad/desafio-2.mp4" type="video/mp4">
+                                Seu navegador não suporta este vídeo. Use o link abaixo para abri-lo.
+                            </video>
+                            <a class="btn btn-outline" href="videos/tinkercad/desafio-2.mp4" target="_blank" rel="noopener noreferrer">Abrir vídeo</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+    <footer class="rodape">
+        <div class="container">
+            <p>&copy; 2026 - Desenvolvido por Bernardo Jacomelli Rodrigues</p>
+        </div>
+    </footer>
+    <button id="btn-topo" title="Voltar ao topo">&#8679;</button>
+    <script src="js/script.js"></script>
+</body>
+</html>
+
+
